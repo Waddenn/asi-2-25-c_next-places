@@ -1,0 +1,6 @@
+/* Home.module.css */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 10vh 5vw;
+}
