@@ -1,17 +1,4 @@
-export const defaultFilters = {
-  selectedType: "",
-  selectedSubType: "",
-  selectedCuisine: "",
-  selectedArtType: "",
-  selectedParkType: "",
-  selectedBarType: "",
-  selectedPrice: "",
-  selectedPriceOption: "",
-  selectedPriceAmount: "",
-  selectedStars: "",
-};
-
-export const options = {
+export const filterOptions = {
   restaurant: [
     {
       name: "selectedCuisine",

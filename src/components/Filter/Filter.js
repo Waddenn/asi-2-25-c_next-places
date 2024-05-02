@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { defaultFilters, options as filterOptions } from "./filterConfig";
+import { filterOptions } from "@/constants/filterOptions";
+import { initialFilterData } from "@/constants/filterInitialValues";
 
 const Select = ({ name, value, onChange, options, label }) => (
   <select
@@ -18,7 +19,7 @@ const Select = ({ name, value, onChange, options, label }) => (
 );
 
 const Filter = ({ onFilterChange }) => {
-  const [filters, setFilters] = useState(defaultFilters);
+  const [filters, setFilters] = useState(initialFilterData);
 
   useEffect(() => {
     onFilterChange(filters);
