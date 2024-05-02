@@ -1,11 +1,9 @@
-// src/pages/add/index.js
 import React from "react";
 import { useRouter } from "next/router";
 import { usePlaceData } from "@/hooks/usePlaceData";
-import Layout from "@/components/Layout/Layout.js";
-import Form from "@/components/Form/Form.js";
-import Select from "@/components/Form/Select.js";
-import styles from "@/components/Form/Form.module.css";
+import Layout from "@/components/Layout/Layout";
+import Form from "@/components/Form/Form";
+import Select from "@/components/Form/Select";
 import initialFormData from "@/constants/formInitialValues";
 
 export default function AddPlace() {
@@ -28,16 +26,23 @@ export default function AddPlace() {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col w-2/5 mx-auto p-8 bg-white shadow-md border border-gray-300 rounded-lg"
+      >
         <Select
           label="Place Type"
           name="placeType"
           options={["restaurant", "museum", "bar", "park"]}
           value={formData.placeType}
           onChange={handleInputChange}
+          className="mb-4"
         />
         <Form formData={formData} handleInputChange={handleInputChange} />
-        <button type="submit" className={styles.button}>
+        <button
+          type="submit"
+          className="py-3 px-6 bg-gray-800 text-white rounded-md mt-4 hover:bg-gray-900 transition-colors uppercase tracking-wide"
+        >
           Add
         </button>
       </form>

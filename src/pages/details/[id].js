@@ -1,9 +1,7 @@
-// src/pages/place/[id].js
 import { useRouter } from "next/router";
 import { usePlaceData } from "@/hooks/usePlaceData";
-import Layout from "@/components/Layout/Layout.js";
-import Form from "@/components/Form/Form.js";
-import styles from "@/components/Form/Form.module.css";
+import Layout from "@/components/Layout/Layout";
+import Form from "@/components/Form/Form";
 import initialFormData from "@/constants/formInitialValues";
 
 const PlaceDetails = ({ id }) => {
@@ -31,17 +29,23 @@ const PlaceDetails = ({ id }) => {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col w-2/5 mx-auto p-8 bg-white shadow-md border border-gray-300 rounded-lg mb-10"
+      >
         <Form formData={formData} handleInputChange={handleInputChange} />
-        <div className={styles.buttonContainer}>
+        <div className="flex justify-evenly items-center mt-4">
           <button
             type="button"
             onClick={handleDelete}
-            className={styles.buttonDelete}
+            className="py-3 px-6 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors uppercase tracking-wide"
           >
             Delete
           </button>
-          <button type="submit" className={styles.buttonEdit}>
+          <button
+            type="submit"
+            className="py-3 px-6 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors uppercase tracking-wide"
+          >
             Edit
           </button>
         </div>

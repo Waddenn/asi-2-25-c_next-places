@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "./Select";
-import styles from "./Form.module.css";
+import Input from "./Input";
 import formOptions from "@/constants/formOptions";
 
 const Form = ({ formData, handleInputChange }) => {
@@ -16,21 +16,18 @@ const Form = ({ formData, handleInputChange }) => {
 
       if (name === "starRating" || name === "price") {
         return (
-          <div className={styles.field} key={name}>
-            <label className={styles.label}>{label}</label>
-            <input
-              type="number"
-              name={name}
-              required
-              className={styles.input}
-              value={formData[name]}
-              onChange={(e) =>
-                handleInputChange({
-                  target: { name, value: Number(e.target.value) },
-                })
-              }
-            />
-          </div>
+          <Input
+            key={name}
+            label={label}
+            name={name}
+            type="number"
+            value={formData[name]}
+            onChange={(e) =>
+              handleInputChange({
+                target: { name, value: Number(e.target.value) },
+              })
+            }
+          />
         );
       }
 
@@ -45,21 +42,18 @@ const Form = ({ formData, handleInputChange }) => {
               onChange={handleInputChange}
             />
             {formData[name] === "paid" && (
-              <div className={styles.field} key={"price"}>
-                <label className={styles.label}>Price</label>
-                <input
-                  type="number"
-                  name="price"
-                  required
-                  className={styles.input}
-                  value={formData.price}
-                  onChange={(e) =>
-                    handleInputChange({
-                      target: { name: "price", value: Number(e.target.value) },
-                    })
-                  }
-                />
-              </div>
+              <Input
+                key="price"
+                label="Price"
+                name="price"
+                type="number"
+                value={formData.price}
+                onChange={(e) =>
+                  handleInputChange({
+                    target: { name: "price", value: Number(e.target.value) },
+                  })
+                }
+              />
             )}
           </div>
         );
@@ -80,65 +74,36 @@ const Form = ({ formData, handleInputChange }) => {
 
   return (
     <>
-      <div className={styles.field}>
-        <label className={styles.label}>Name of Place</label>
-        <input
-          type="text"
-          name="placeName"
-          required
-          className={styles.input}
-          value={formData.placeName}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className={styles.field}>
-        <label className={styles.label}>Address</label>
-        <input
-          type="text"
-          name="address"
-          required
-          className={styles.input}
-          value={formData.address}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className={styles.field}>
-        <label className={styles.label}>City</label>
-        <input
-          type="text"
-          name="city"
-          required
-          className={styles.input}
-          value={formData.city}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className={styles.field}>
-        <label className={styles.label}>Postal Code</label>
-        <input
-          type="text"
-          name="postalCode"
-          required
-          className={styles.input}
-          value={formData.postalCode}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className={styles.field}>
-        <label className={styles.label}>Country</label>
-        <input
-          type="text"
-          name="country"
-          required
-          className={styles.input}
-          value={formData.country}
-          onChange={handleInputChange}
-        />
-      </div>
+      <Input
+        label="Name of Place"
+        name="placeName"
+        value={formData.placeName}
+        onChange={handleInputChange}
+      />
+      <Input
+        label="Address"
+        name="address"
+        value={formData.address}
+        onChange={handleInputChange}
+      />
+      <Input
+        label="City"
+        name="city"
+        value={formData.city}
+        onChange={handleInputChange}
+      />
+      <Input
+        label="Postal Code"
+        name="postalCode"
+        value={formData.postalCode}
+        onChange={handleInputChange}
+      />
+      <Input
+        label="Country"
+        name="country"
+        value={formData.country}
+        onChange={handleInputChange}
+      />
 
       {renderAdditionalFields()}
     </>

@@ -1,42 +1,33 @@
-import { useState, useEffect } from "react";
 import { filterOptions } from "@/constants/filterOptions";
 import { initialFilterData } from "@/constants/filterInitialValues";
-
-const Select = ({ name, value, onChange, options, label }) => (
-  <select
-    name={name}
-    value={value}
-    onChange={onChange}
-    className="p-3 rounded border border-gray-300 text-base mb-4 focus:outline-none focus:border-blue-800 focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 last:mb-0"
-  >
-    <option value="">{label}</option>
-    {options.map((option) => (
-      <option key={option.value} value={option.value}>
-        {option.label}
-      </option>
-    ))}
-  </select>
-);
+import React, { useEffect, useMemo } from "react";
+import Select from "./Select";
+import useForm from "@/hooks/useForm";
 
 const Filter = ({ onFilterChange }) => {
-  const [filters, setFilters] = useState(initialFilterData);
+  const [filters, handleChange, resetForm] = useForm(initialFilterData);
 
   useEffect(() => {
     onFilterChange(filters);
   }, [filters, onFilterChange]);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    if (
+      filters.selectedType &&
+      filters.selectedType !== initialFilterData.selectedType
+    ) {
+      resetForm({ ...initialFilterData, selectedType: filters.selectedType });
+    }
+  }, [filters.selectedType, resetForm]);
 
-  const filterTypesOptions = Object.keys(filterOptions).map((type) => ({
-    value: type,
-    label: type.charAt(0).toUpperCase() + type.slice(1),
-  }));
+  const filterTypesOptions = useMemo(
+    () =>
+      Object.keys(filterOptions).map((type) => ({
+        value: type,
+        label: type.charAt(0).toUpperCase() + type.slice(1),
+      })),
+    []
+  );
 
   return (
     <div className="flex flex-col w-[20vw] p-4 bg-white shadow-md border-none rounded-lg mr-8 fixed left-[5vw] transition-shadow duration-300 ease-in-out hover:shadow-lg">
