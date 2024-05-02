@@ -12,9 +12,9 @@ import useFetchData from "../../hooks/useFetchData";
 
 const typeIcons = {
   restaurant: FaUtensils,
-  museum: FaLandmark, // Changed 'musee' to 'museum'
+  museum: FaLandmark,
   bar: FaGlassMartiniAlt,
-  park: FaTree, // Changed 'parc' to 'park'
+  park: FaTree,
 };
 
 const AddressList = ({ filters }) => {
@@ -33,10 +33,10 @@ const AddressList = ({ filters }) => {
   return (
     <ul className={styles.listContainer}>
       {visibleItems.map((place) => {
-        const TypeIcon = typeIcons[place.placeType] || FaMapMarkerAlt; 
+        const TypeIcon = typeIcons[place.placeType] || FaMapMarkerAlt;
         return (
           <AddressItem key={place._id} place={place} TypeIcon={TypeIcon} />
-        ); 
+        );
       })}
     </ul>
   );
