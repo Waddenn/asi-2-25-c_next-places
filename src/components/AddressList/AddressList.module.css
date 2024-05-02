@@ -1,0 +1,73 @@
+.listContainer {
+  z-index: 10;
+  width: 40vw;
+  margin-left: 10vw;
+}
+
+.listItem {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #dbdbdb;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.listItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.listItem:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.detail {
+  margin-top: 0.5rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #333;
+}
+
+.info {
+  flex: 1;
+}
+
+.address {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
