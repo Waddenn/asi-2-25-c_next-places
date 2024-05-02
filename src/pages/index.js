@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Layout from "../components/Layout/Layout";
 import AddressList from "../components/AddressList/AddressList";
 import Filter from "../components/Filter/Filter";
-import { defaultFilters } from "../components/Filter/filterConfig";
+import { initialFilterData } from "@/constants/filterInitialValues";
 
 export default function Home() {
-  const [filters, setFilters] = useState(defaultFilters);
+  const [filters, setFilters] = useState(initialFilterData);
 
   return (
     <Layout>

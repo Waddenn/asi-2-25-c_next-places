@@ -1,38 +1,14 @@
-import { useEffect, useState } from "react";
+// src/pages/place/[id].js
 import { useRouter } from "next/router";
-import styles from "@/components/Form/Form.module.css";
-import Form from "@/components/Form/Form.js";
+import { usePlaceData } from "@/hooks/usePlaceData";
 import Layout from "@/components/Layout/Layout.js";
+import Form from "@/components/Form/Form.js";
+import styles from "@/components/Form/Form.module.css";
+import initialFormData from "@/constants/formInitialValues";
 
 const PlaceDetails = ({ id }) => {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    placeType: "",
-    placeName: "",
-    address: "",
-    city: "",
-    postalCode: "",
-    country: "",
-    cuisineType: "",
-    starRating: "",
-    averagePrice: "",
-    artMovement: "",
-    artType: "",
-    freeOrPaid: "",
-    price: "",
-    barType: "",
-    parkType: "",
-    publicOrPrivate: "",
-  });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`/api/places?id=${id}`);
-      const data = await response.json();
-      setFormData(data);
-    };
-    fetchData();
-  }, [id]);
+  const { formData, handleInputChange } = usePlaceData(id, initialFormData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,12 +32,7 @@ const PlaceDetails = ({ id }) => {
   return (
     <Layout>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <Form
-          formData={formData}
-          handleInputChange={(e) =>
-            setFormData({ ...formData, [e.target.name]: e.target.value })
-          }
-        />
+        <Form formData={formData} handleInputChange={handleInputChange} />
         <div className={styles.buttonContainer}>
           <button
             type="button"

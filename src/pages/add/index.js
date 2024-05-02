@@ -1,29 +1,16 @@
-import { useState } from "react";
+// src/pages/add/index.js
+import React from "react";
 import { useRouter } from "next/router";
+import { usePlaceData } from "@/hooks/usePlaceData";
 import Layout from "@/components/Layout/Layout.js";
 import Form from "@/components/Form/Form.js";
+import Select from "@/components/Form/Select.js";
 import styles from "@/components/Form/Form.module.css";
+import initialFormData from "@/constants/formInitialValues";
 
 export default function AddPlace() {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    placeType: "", 
-    placeName: "", 
-    address: "", 
-    city: "", 
-    postalCode: "",
-    country: "", 
-    cuisineType: "", 
-    starRating: "", 
-    averagePrice: "", 
-  });
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { formData, handleInputChange } = usePlaceData(null, initialFormData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,9 +19,7 @@ export default function AddPlace() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-
     if (response.ok) {
-      console.log("Success:", await response.json());
       router.push("/");
     } else {
       console.error("Error:", await response.text());
@@ -44,6 +29,13 @@ export default function AddPlace() {
   return (
     <Layout>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <Select
+          label="Place Type"
+          name="placeType"
+          options={["restaurant", "museum", "bar", "park"]}
+          value={formData.placeType}
+          onChange={handleInputChange}
+        />
         <Form formData={formData} handleInputChange={handleInputChange} />
         <button type="submit" className={styles.button}>
           Add
