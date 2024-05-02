@@ -1,5 +1,4 @@
-import { useCallback, useState, useEffect, useMemo } from "react";
-import styles from "./Filter.module.css";
+import { useState, useEffect } from "react";
 import { defaultFilters, options as filterOptions } from "./filterConfig";
 
 const Select = ({ name, value, onChange, options, label }) => (
@@ -7,7 +6,7 @@ const Select = ({ name, value, onChange, options, label }) => (
     name={name}
     value={value}
     onChange={onChange}
-    className={styles.select}
+    className="p-3 rounded border border-gray-300 text-base mb-4 focus:outline-none focus:border-blue-800 focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50 last:mb-0"
   >
     <option value="">{label}</option>
     {options.map((option) => (
@@ -25,31 +24,21 @@ const Filter = ({ onFilterChange }) => {
     onFilterChange(filters);
   }, [filters, onFilterChange]);
 
-  const handleChange = useCallback(
-    (event) => {
-      const { name, value } = event.target;
-      setFilters((prevFilters) => ({
-        ...prevFilters,
-        [name]: value,
-        ...(name === "selectedType"
-          ? { ...defaultFilters, selectedType: value }
-          : {}),
-      }));
-    },
-    [defaultFilters],
-  );
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
+  };
 
-  const filterTypesOptions = useMemo(
-    () =>
-      Object.keys(filterOptions).map((type) => ({
-        value: type,
-        label: type.charAt(0).toUpperCase() + type.slice(1),
-      })),
-    [],
-  );
+  const filterTypesOptions = Object.keys(filterOptions).map((type) => ({
+    value: type,
+    label: type.charAt(0).toUpperCase() + type.slice(1),
+  }));
 
   return (
-    <div className={styles.filterContainer}>
+    <div className="flex flex-col w-[20vw] p-4 bg-white shadow-md border-none rounded-lg mr-8 fixed left-[5vw] transition-shadow duration-300 ease-in-out hover:shadow-lg">
       <Select
         name="selectedType"
         value={filters.selectedType}
@@ -75,7 +64,7 @@ const Filter = ({ onFilterChange }) => {
           name="selectedPriceAmount"
           value={filters.selectedPriceAmount || ""}
           onChange={handleChange}
-          className={styles.input}
+          className="p-3 rounded border border-gray-300 text-base focus:outline-none focus:border-blue-800 focus:ring-2 focus:ring-blue-800 focus:ring-opacity-50"
           placeholder="Price"
         />
       )}

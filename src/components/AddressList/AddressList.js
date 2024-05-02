@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import styles from "./AddressList.module.css";
-import AddressItem from "./AddressItem";
+import AddressItem from "../AddressItem/AddressItem";
+import useFetchData from "../../hooks/useFetchData";
+
 import {
   FaMapMarkerAlt,
   FaUtensils,
@@ -8,7 +9,6 @@ import {
   FaTree,
   FaLandmark,
 } from "react-icons/fa";
-import useFetchData from "../../hooks/useFetchData";
 
 const typeIcons = {
   restaurant: FaUtensils,
@@ -31,7 +31,7 @@ const AddressList = ({ filters }) => {
   }, [places]);
 
   return (
-    <ul className={styles.listContainer}>
+    <ul className="z-10 ml-[10vw] w-[40vw]">
       {visibleItems.map((place) => {
         const TypeIcon = typeIcons[place.placeType] || FaMapMarkerAlt;
         return (
