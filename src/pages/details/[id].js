@@ -56,15 +56,18 @@ const PlaceDetails = ({ id }) => {
           handleInputChange={handleInputChange}
           errors={errors}
         />
-        <div className="flex justify-evenly items-center mt-7">
+        <div className="flex justify-evenly items-center mt-7 w-full">
           <Button
             type="button"
             onClick={handleDelete}
-            className="bg-transparent hover:bg-sky-950 text-sky-950 hover:text-white border border-sky-950 hover:border-transparent"
+            className="bg-transparent hover:bg-sky-950 text-sky-950 hover:text-white border border-sky-950 hover:border-transparent py-3 w-full mr-2"
           >
             Delete
           </Button>
-          <Button type="submit" className="bg-sky-950 hover:bg-sky-900 px-10">
+          <Button
+            type="submit"
+            className="bg-sky-950 hover:bg-sky-900 text-white py-3 w-full ml-2"
+          >
             Edit
           </Button>
         </div>
