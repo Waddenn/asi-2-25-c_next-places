@@ -4,6 +4,7 @@ import Layout from "@/components/Layout/Layout";
 import Form from "@/components/Form/Form";
 import useFormValidation from "@/hooks/useFormValidation";
 import initialFormData from "@/constants/formInitialValues";
+import Button from "@/components/Button/Button";
 
 const PlaceDetails = ({ id }) => {
   const router = useRouter();
@@ -56,19 +57,16 @@ const PlaceDetails = ({ id }) => {
           errors={errors}
         />
         <div className="flex justify-evenly items-center mt-4">
-          <button
+          <Button
             type="button"
             onClick={handleDelete}
-            className="py-3 px-6 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors uppercase tracking-wide"
+            className="bg-transparent hover:bg-sky-950 text-sky-950 hover:text-white border border-sky-950 hover:border-transparent"
           >
             Delete
-          </button>
-          <button
-            type="submit"
-            className="py-3 px-6 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors uppercase tracking-wide"
-          >
+          </Button>
+          <Button type="submit" className="bg-sky-950 hover:bg-sky-900 px-10">
             Edit
-          </button>
+          </Button>
         </div>
       </form>
     </Layout>

@@ -5,6 +5,7 @@ import Form from "@/components/Form/Form";
 import Select from "@/components/Form/Select";
 import initialFormData from "@/constants/formInitialValues";
 import useFormValidation from "@/hooks/useFormValidation";
+import Button from "@/components/Button/Button";
 
 export default function AddPlace() {
   const router = useRouter();
@@ -50,12 +51,9 @@ export default function AddPlace() {
           handleInputChange={handleInputChange}
           errors={errors}
         />
-        <button
-          type="submit"
-          className="py-3 px-6 bg-[rgb(44,62,80)] text-white rounded-md mt-4 hover:bg-[rgb(54,72,90)] transition-colors uppercase tracking-wide"
-        >
+        <Button type="submit" className="bg-sky-950 hover:bg-sky-900 mt-4">
           Add
-        </button>
+        </Button>
       </form>
     </Layout>
   );
