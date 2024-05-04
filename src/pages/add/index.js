@@ -35,7 +35,7 @@ export default function AddPlace() {
     <Layout>
       <form
         onSubmit={handleSubmit}
-        className="relative z-10 flex flex-col w-2/5 mx-auto p-8 bg-white shadow-md border border-gray-300 rounded-lg"
+        className="relative z-10 flex flex-col w-2/5 mx-auto p-8 bg-white shadow-md border border-gray-300 rounded-lg mb-10"
       >
         <Select
           label="Place Type"
@@ -52,7 +52,7 @@ export default function AddPlace() {
           errors={errors}
         />
         <Button type="submit" className="bg-sky-950 hover:bg-sky-900 mt-4">
-          Add
+          submit
         </Button>
       </form>
     </Layout>

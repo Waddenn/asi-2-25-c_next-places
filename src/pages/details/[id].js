@@ -56,7 +56,7 @@ const PlaceDetails = ({ id }) => {
           handleInputChange={handleInputChange}
           errors={errors}
         />
-        <div className="flex justify-evenly items-center mt-4">
+        <div className="flex justify-evenly items-center mt-7">
           <Button
             type="button"
             onClick={handleDelete}

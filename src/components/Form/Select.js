@@ -2,8 +2,8 @@ import React from "react";
 
 const Select = ({ label, name, options, value, onChange, errorMessage }) => {
   return (
-    <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2">{label}</label>
+    <div>
+      <label className="block text-gray-700 font-bold mb-2 mt-2">{label}</label>
       <select
         name={name}
         required

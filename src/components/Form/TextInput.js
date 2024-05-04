@@ -10,7 +10,7 @@ const TextInput = ({
   ...props
 }) => (
   <div>
-    <label htmlFor={name} className="block text-gray-700 font-bold mb-2">
+    <label htmlFor={name} className="block text-gray-700 font-bold mb-2 mt-2">
       {label}
     </label>
     <input
