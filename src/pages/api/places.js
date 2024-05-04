@@ -1,5 +1,5 @@
-import { createRoute } from "../../api/createRoute";
-import { PlaceModel } from "../../db/models/placeModel";
+import { createRoute } from "@/api/createRoute";
+import { PlaceModel } from "@/db/models/placeModel";
 
 const sendResponse = (res, status, data) => res.status(status).json(data);
 

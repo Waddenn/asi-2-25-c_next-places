@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Layout from "../components/Layout/Layout";
-import AddressList from "../components/AddressList/AddressList";
-import Filter from "../components/Filter/Filter";
+import Layout from "@/components/Layout/Layout";
+import AddressList from "@/components/AddressList/AddressList";
+import Filter from "@/components/Filter/Filter";
 import { initialFilterData } from "@/constants/filterInitialValues";
 
 export default function Home() {

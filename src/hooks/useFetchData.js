@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { filterPlace } from "../services/filterService";
+import { filterPlace } from "@/services/filterService";
 
 const useFetchData = (filters) => {
   const [data, setData] = useState([]);
