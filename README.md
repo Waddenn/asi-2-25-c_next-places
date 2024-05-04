@@ -4,8 +4,6 @@
 
 This Next.js project is developed by a company aiming to connect local shops with new customers by featuring them on our website. Before offering our services to shops, we need to attract a substantial user base. Our website will allow users to add and consult detailed information about different addresses, enhancing visibility for these shops. The site also supports advanced search functionalities to filter through the registered addresses.
 
-![Screencast from 2024-05-04 23-32-27](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/be2ec47f-7367-4903-af6b-504eefcc5968)
-
 ## Getting Started
 
 ### Prerequisites
