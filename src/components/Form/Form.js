@@ -1,66 +1,38 @@
-import React, { useEffect, useState } from "react";
-import FormInput from "@/components/Form/FormInput";
-import formOptions from "@/constants/formOptions";
+import React from "react";
+import TextInput from "@/components/Form/TextInput";
+import useDynamicOptions from "@/hooks/useDynamicOptions";
+import DynamicFormField from "./DynamicFormField";
 
-const Form = ({ formData, handleInputChange }) => {
-  const [options, setOptions] = useState([]);
-
-  useEffect(() => {
-    setOptions(formOptions[formData.placeType] || []);
-  }, [formData.placeType]);
-
-  const renderAdditionalFields = () =>
-    options.map((option) => {
-      const inputType =
-        option.name === "starRating" || option.name === "price"
-          ? "number"
-          : "text";
-      return (
-        <FormInput
-          key={option.name}
-          label={option.label}
-          name={option.name}
-          type={inputType}
-          options={option.options}
-          value={formData[option.name]}
-          onChange={handleInputChange}
-        />
-      );
-    });
+const Form = ({ formData, handleInputChange, errors }) => {
+  const options = useDynamicOptions(formData.placeType);
 
   return (
     <>
-      <FormInput
-        label="Name of Place"
-        name="placeName"
-        value={formData.placeName}
-        onChange={handleInputChange}
-      />
-      <FormInput
-        label="Address"
-        name="address"
-        value={formData.address}
-        onChange={handleInputChange}
-      />
-      <FormInput
-        label="City"
-        name="city"
-        value={formData.city}
-        onChange={handleInputChange}
-      />
-      <FormInput
-        label="Postal Code"
-        name="postalCode"
-        value={formData.postalCode}
-        onChange={handleInputChange}
-      />
-      <FormInput
-        label="Country"
-        name="country"
-        value={formData.country}
-        onChange={handleInputChange}
-      />
-      {renderAdditionalFields()}
+      {[
+        { label: "Name of Place", name: "placeName" },
+        { label: "Address", name: "address" },
+        { label: "City", name: "city" },
+        { label: "Postal Code", name: "postalCode" },
+        { label: "Country", name: "country" },
+      ].map((field) => (
+        <TextInput
+          key={field.name}
+          label={field.label}
+          name={field.name}
+          value={formData[field.name]}
+          onChange={handleInputChange}
+          errorMessage={errors[field.name]}
+        />
+      ))}
+      {options.map((option) => (
+        <DynamicFormField
+          key={option.name}
+          formData={formData}
+          handleInputChange={handleInputChange}
+          field={option}
+          errorMessage={errors[option.name]}
+        />
+      ))}
     </>
   );
 };
