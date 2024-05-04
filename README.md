@@ -4,6 +4,8 @@
 
 This Next.js project is developed by a company aiming to connect local shops with new customers by featuring them on our website. Before offering our services to shops, we need to attract a substantial user base. Our website will allow users to add and consult detailed information about different addresses, enhancing visibility for these shops. The site also supports advanced search functionalities to filter through the registered addresses.
 
+![Uploading Screencast from 2024-05-04 23-32-27.gif…]()
+
 ## Getting Started
 
 ### Prerequisites
