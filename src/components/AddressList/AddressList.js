@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
-import AddressItem from "../AddressItem/AddressItem";
-import useFetchData from "../../hooks/useFetchData";
-
-import {
-  FaMapMarkerAlt,
-  FaUtensils,
-  FaGlassMartiniAlt,
-  FaTree,
-  FaLandmark,
-} from "react-icons/fa";
-
-const typeIcons = {
-  restaurant: FaUtensils,
-  museum: FaLandmark,
-  bar: FaGlassMartiniAlt,
-  park: FaTree,
-};
+import AddressItem from "@/components/AddressItem/AddressItem";
+import useFetchData from "@/hooks/useFetchData";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import typeIcons from "@/constants/typeIcons";
 
 const AddressList = ({ filters }) => {
   const places = useFetchData(filters);
