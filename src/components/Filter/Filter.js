@@ -5,18 +5,22 @@ import Select from "./Select";
 import useForm from "@/hooks/useForm";
 
 const Filter = ({ onFilterChange }) => {
-  const [filters, handleChange, resetForm] = useForm(initialFilterData);
+  const [filters, handleChange, resetForm] = useForm(
+    initialFilterData,
+    initialFilterData
+  );
 
   useEffect(() => {
     onFilterChange(filters);
   }, [filters, onFilterChange]);
 
   useEffect(() => {
-    if (
-      filters.selectedType &&
-      filters.selectedType !== initialFilterData.selectedType
-    ) {
-      resetForm({ ...initialFilterData, selectedType: filters.selectedType });
+    if (filters.selectedType) {
+      if (filters.selectedType !== initialFilterData.selectedType) {
+        resetForm({ ...initialFilterData, selectedType: filters.selectedType });
+      }
+    } else {
+      resetForm(initialFilterData);
     }
   }, [filters.selectedType, resetForm]);
 
