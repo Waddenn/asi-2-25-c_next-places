@@ -1,4 +1,3 @@
-// src/constants/formInitialValues.js
 const initialFormData = {
   placeType: "",
   placeName: "",

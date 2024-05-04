@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Select from "./Select";
-import Input from "./Input";
+import FormInput from "@/components/Form/FormInput";
 import formOptions from "@/constants/formOptions";
 
 const Form = ({ formData, handleInputChange }) => {
@@ -10,101 +9,57 @@ const Form = ({ formData, handleInputChange }) => {
     setOptions(formOptions[formData.placeType] || []);
   }, [formData.placeType]);
 
-  const renderAdditionalFields = () => {
-    return options.map((option) => {
-      const { name, label, options: selectOptions } = option;
-
-      if (name === "starRating" || name === "price") {
-        return (
-          <Input
-            key={name}
-            label={label}
-            name={name}
-            type="number"
-            value={formData[name]}
-            onChange={(e) =>
-              handleInputChange({
-                target: { name, value: Number(e.target.value) },
-              })
-            }
-          />
-        );
-      }
-
-      if (name === "freeOrPaid") {
-        return (
-          <div key={name}>
-            <Select
-              label={label}
-              name={name}
-              options={selectOptions}
-              value={formData[name]}
-              onChange={handleInputChange}
-            />
-            {formData[name] === "paid" && (
-              <Input
-                key="price"
-                label="Price"
-                name="price"
-                type="number"
-                value={formData.price}
-                onChange={(e) =>
-                  handleInputChange({
-                    target: { name: "price", value: Number(e.target.value) },
-                  })
-                }
-              />
-            )}
-          </div>
-        );
-      }
-
+  const renderAdditionalFields = () =>
+    options.map((option) => {
+      const inputType =
+        option.name === "starRating" || option.name === "price"
+          ? "number"
+          : "text";
       return (
-        <Select
-          key={name}
-          label={label}
-          name={name}
-          options={selectOptions}
-          value={formData[name]}
+        <FormInput
+          key={option.name}
+          label={option.label}
+          name={option.name}
+          type={inputType}
+          options={option.options}
+          value={formData[option.name]}
           onChange={handleInputChange}
         />
       );
     });
-  };
 
   return (
     <>
-      <Input
+      <FormInput
         label="Name of Place"
         name="placeName"
         value={formData.placeName}
         onChange={handleInputChange}
       />
-      <Input
+      <FormInput
         label="Address"
         name="address"
         value={formData.address}
         onChange={handleInputChange}
       />
-      <Input
+      <FormInput
         label="City"
         name="city"
         value={formData.city}
         onChange={handleInputChange}
       />
-      <Input
+      <FormInput
         label="Postal Code"
         name="postalCode"
         value={formData.postalCode}
         onChange={handleInputChange}
       />
-      <Input
+      <FormInput
         label="Country"
         name="country"
         value={formData.country}
         onChange={handleInputChange}
       />
-
       {renderAdditionalFields()}
     </>
   );

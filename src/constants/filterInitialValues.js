@@ -1,4 +1,3 @@
-// src/constants/filterInitialValues.js
 export const initialFilterData = {
   selectedType: "",
   selectedCuisine: "",

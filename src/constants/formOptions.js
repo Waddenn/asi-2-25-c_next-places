@@ -1,4 +1,3 @@
-// src/constants/formOptions.js
 const formOptions = {
   restaurant: [
     {
