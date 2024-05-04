@@ -45,4 +45,4 @@ pnpm run dev
 
 ![Screenshot from 2024-05-04 22-53-44](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/f9f064cf-4bd8-4ccd-b25a-d5e9cc23072f)
 ![Screenshot from 2024-05-04 23-04-54](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/ad769591-83c4-407f-927b-aa715ff0a2c0)
-![Screenshot from 2024-05-04 23-11-15](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/899a3e05-91b8-4aa9-aa53-02df19352622)
+![Screenshot from 2024-05-05 01-30-40](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/791aa1db-2811-4608-9998-a06f5e37eb18)
