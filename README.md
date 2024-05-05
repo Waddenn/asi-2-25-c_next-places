@@ -1,28 +1,14 @@
 # asi-2-25-c_next-places
 
-## Overview
-
-This Next.js project is developed by a company aiming to connect local shops with new customers by featuring them on our website. Before offering our services to shops, we need to attract a substantial user base. Our website will allow users to add and consult detailed information about different addresses, enhancing visibility for these shops. The site also supports advanced search functionalities to filter through the registered addresses.
-
-## Getting Started
-
 ### Prerequisites
 Before you start, ensure you have the following installed:
 - Node.js
 - pnpm
 
 ### Installation
-Follow these steps to get your development environment set up:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/yourprojectname.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd yourprojectname
-   ```
-3. **Install dependencies using pnpm:**
+1. **Install dependencies using pnpm:**
+
    ```bash
    pnpm install
    ```
@@ -38,10 +24,22 @@ To connect to your MongoDB database, you need to set up the environment variable
    Replace `your_mongodb_connection_string` with your actual MongoDB connection URL.
 
 ## Running the Project
-To run the project locally, execute:
-```bash
-pnpm run dev
-```
+To run the project locally :
+
+1. Build the application:
+
+   ```bash
+   pnpm run build
+   ```
+
+   This command will generate the necessary production build in the `.next` directory.
+
+2. After building, start the production server:
+
+   ```bash
+   pnpm run start
+   ```
+
 
 ![Screenshot from 2024-05-04 22-53-44](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/f9f064cf-4bd8-4ccd-b25a-d5e9cc23072f)
 ![Screenshot from 2024-05-04 23-04-54](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/ad769591-83c4-407f-927b-aa715ff0a2c0)
