@@ -13,14 +13,16 @@ const useForm = (initialState, initialFormData) => {
   const handleChange = useCallback(
     (event) => {
       const { name, value } = event.target;
+
       if (value === "") {
         resetForm(initialFormData);
-      } else {
-        setValues((prevValues) => ({
-          ...prevValues,
-          [name]: value,
-        }));
+        return;
       }
+
+      setValues((prevValues) => ({
+        ...prevValues,
+        [name]: value,
+      }));
     },
     [resetForm, initialFormData]
   );
