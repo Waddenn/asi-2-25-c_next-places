@@ -43,7 +43,7 @@ To run the project locally :
 
 ### Deployment URL of the Project
 
-The deployed version of the `asi-2-25-c_next-places` project is live and can be accessed through the link below:
+The deployed version of the `asi-2-25-c_next-places` project can be accessed through the link below:
 
 [**Visit the Deployed Project**](https://nextplaces.hexaflare.net/)
 
