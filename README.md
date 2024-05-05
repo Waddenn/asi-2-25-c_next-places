@@ -24,10 +24,22 @@ To connect to your MongoDB database, you need to set up the environment variable
    Replace `your_mongodb_connection_string` with your actual MongoDB connection URL.
 
 ## Running the Project
-To run the project locally, execute:
-```bash
-pnpm run dev
-```
+To run the project locally :
+
+1. Build the application:
+
+   ```bash
+   pnpm run build
+   ```
+
+   This command will generate the necessary production build in the `.next` directory.
+
+2. After building, start the production server:
+
+   ```bash
+   pnpm run start
+   ```
+
 
 ![Screenshot from 2024-05-04 22-53-44](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/f9f064cf-4bd8-4ccd-b25a-d5e9cc23072f)
 ![Screenshot from 2024-05-04 23-04-54](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/ad769591-83c4-407f-927b-aa715ff0a2c0)
