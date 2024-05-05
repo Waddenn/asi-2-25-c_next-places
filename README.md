@@ -17,7 +17,7 @@ To connect to your MongoDB database, you need to set up the environment variable
    ```
    DB_URL=your_mongodb_connection_string
    ```
-## Running the Project
+### Running the Project
 To run the project locally :
 
 1. Build the application:
