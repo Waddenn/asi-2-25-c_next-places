@@ -13,6 +13,7 @@ To connect to your MongoDB database, you need to set up the environment variable
 
 1. Create a `.env` file in the root of your project directory.
 2. Add the following line to the file:
+
    ```
    DB_URL=your_mongodb_connection_string
    ```
