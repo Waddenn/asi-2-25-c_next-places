@@ -39,7 +39,15 @@ To run the project locally :
    ```bash
    pnpm run start
    ```
+---
 
+### Deployment URL of the Project
+
+The deployed version of the `asi-2-25-c_next-places` project is live and can be accessed through the link below:
+
+[**Visit the Deployed Project**](https://nextplaces.hexaflare.net/)
+
+---
 
 ![Screenshot from 2024-05-04 22-53-44](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/f9f064cf-4bd8-4ccd-b25a-d5e9cc23072f)
 ![Screenshot from 2024-05-04 23-04-54](https://github.com/Waddenn/asi-2-25-c_next-places/assets/115143365/ad769591-83c4-407f-927b-aa715ff0a2c0)
