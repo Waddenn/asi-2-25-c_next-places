@@ -8,6 +8,7 @@ Before you start, ensure you have the following installed:
 ### Installation
 
 1. **Install dependencies using pnpm:**
+
    ```bash
    pnpm install
    ```
