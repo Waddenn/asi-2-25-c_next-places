@@ -6,17 +6,8 @@ Before you start, ensure you have the following installed:
 - pnpm
 
 ### Installation
-Follow these steps to get your development environment set up:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/yourprojectname.git
-   ```
-2. **Navigate to the project directory:**
-   ```bash
-   cd yourprojectname
-   ```
-3. **Install dependencies using pnpm:**
+1. **Install dependencies using pnpm:**
    ```bash
    pnpm install
    ```
