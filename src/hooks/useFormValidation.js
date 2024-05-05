@@ -6,30 +6,37 @@ const useFormValidation = (initialFormData) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    updateFormData(name, value);
+    validateField(name, value);
+  };
 
-    if (value.trim() === "") {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: `${name} is required.`,
-      }));
-    } else {
-      setErrors((prevErrors) => {
-        const newErrors = { ...prevErrors };
+  const updateFormData = (name, value) => {
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
+  const validateField = (name, value) => {
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+      if (value.trim() === "") {
+        newErrors[name] = `${name} is required.`;
+      } else {
         delete newErrors[name];
-        return newErrors;
-      });
-    }
+      }
+      return newErrors;
+    });
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.placeName) newErrors.placeName = "Place name is required.";
-    if (!formData.address) newErrors.address = "Address is required.";
-    if (!formData.city) newErrors.city = "City is required.";
-    if (!formData.postalCode) newErrors.postalCode = "Postal code is required.";
-    if (!formData.country) newErrors.country = "Country is required.";
-    if (!formData.placeType) newErrors.placeType = "Place type is required.";
+    Object.keys(formData).forEach((key) => {
+      if (!formData.placeName) newErrors.placeName = "Place name is required.";
+      if (!formData.address) newErrors.address = "Address is required.";
+      if (!formData.city) newErrors.city = "City is required.";
+      if (!formData.postalCode)
+        newErrors.postalCode = "Postal code is required.";
+      if (!formData.country) newErrors.country = "Country is required.";
+      if (!formData.placeType) newErrors.placeType = "Place type is required.";
+    });
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
