@@ -9,14 +9,11 @@ import Button from "@/components/Button/Button";
 
 export default function AddPlace() {
   const router = useRouter();
-  const { formData, errors, handleInputChange, validateForm } =
+  const { formData, errors, handleInputChange } =
     useFormValidation(initialFormData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      return;
-    }
 
     const response = await fetch("/api/places", {
       method: "POST",

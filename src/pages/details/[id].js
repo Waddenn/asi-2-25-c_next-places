@@ -8,7 +8,7 @@ import Button from "@/components/Button/Button";
 
 const PlaceDetails = ({ id }) => {
   const router = useRouter();
-  const { formData, errors, handleInputChange, setFormData, validateForm } =
+  const { formData, errors, handleInputChange, setFormData } =
     useFormValidation(initialFormData);
 
   useEffect(() => {
@@ -25,9 +25,7 @@ const PlaceDetails = ({ id }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      return;
-    }
+
     const response = await fetch(`/api/places/?id=${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

@@ -22,6 +22,7 @@ const Form = ({ formData, handleInputChange, errors }) => {
           value={formData[field.name]}
           onChange={handleInputChange}
           errorMessage={errors[field.name]}
+          maxLength={30}
         />
       ))}
       {options.map((option) => (
@@ -29,8 +30,9 @@ const Form = ({ formData, handleInputChange, errors }) => {
           key={option.name}
           formData={formData}
           handleInputChange={handleInputChange}
+          errors={errors}
           field={option}
-          errorMessage={errors[option.name]}
+          maxLength={5}
         />
       ))}
     </>

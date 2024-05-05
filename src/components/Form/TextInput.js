@@ -7,6 +7,7 @@ const TextInput = ({
   value,
   onChange,
   errorMessage,
+  maxLength,
   ...props
 }) => (
   <div>
@@ -19,6 +20,8 @@ const TextInput = ({
       name={name}
       value={value}
       onChange={onChange}
+      maxLength={maxLength}
+      required
       className={`appearance-none block w-full bg-white text-gray-700 border ${errorMessage ? "border-red-500" : "border-gray-400"} rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500`}
       {...props}
     />

@@ -2,7 +2,13 @@ import React from "react";
 import TextInput from "./TextInput";
 import Select from "./Select";
 
-const DynamicFormField = ({ formData, handleInputChange, field }) => {
+const DynamicFormField = ({
+  formData,
+  handleInputChange,
+  field,
+  errors,
+  maxLength,
+}) => {
   const inputType =
     field.name === "starRating" || field.name === "price" ? "number" : "text";
 
@@ -22,6 +28,9 @@ const DynamicFormField = ({ formData, handleInputChange, field }) => {
           name="price"
           value={formData["price"]}
           onChange={handleInputChange}
+          errorMessage={errors.price}
+          maxLength={maxLength}
+          required
         />
       )}
     </>
