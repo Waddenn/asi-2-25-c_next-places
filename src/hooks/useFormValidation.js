@@ -11,17 +11,19 @@ const useFormValidation = (initialFormData) => {
   };
 
   const validateField = (name, value) => {
-    setErrors((prevErrors) => {
-      const newErrors = { ...prevErrors };
-      if (value.trim() === "") {
-        newErrors[name] = `${name} is required.`;
-      } else if (name === "price" && isNaN(value)) {
+    const newErrors = {};
+
+    if (value.trim() === "") {
+      newErrors[name] = `${name} is required.`;
+    }
+
+    if (name === "price") {
+      if (isNaN(value)) {
         newErrors[name] = "Price must be a number.";
-      } else {
-        delete newErrors[name];
       }
-      return newErrors;
-    });
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: newErrors[name] }));
   };
 
   return {
