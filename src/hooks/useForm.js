@@ -1,6 +1,14 @@
 import { useState, useCallback } from "react";
+
 const useForm = (initialState, initialFormData) => {
   const [values, setValues] = useState(initialState);
+
+  const resetForm = useCallback(
+    (newState = initialFormData) => {
+      setValues(newState);
+    },
+    [initialFormData]
+  );
 
   const handleChange = useCallback(
     (event) => {
@@ -14,14 +22,7 @@ const useForm = (initialState, initialFormData) => {
         }));
       }
     },
-    [initialFormData]
-  );
-
-  const resetForm = useCallback(
-    (newState = initialFormData) => {
-      setValues(newState);
-    },
-    [initialFormData]
+    [resetForm, initialFormData]
   );
 
   return [values, handleChange, resetForm];
