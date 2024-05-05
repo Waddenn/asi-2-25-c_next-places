@@ -47,7 +47,7 @@ const PlaceDetails = ({ id }) => {
     <Layout>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col w-2/5 mx-auto p-8 bg-white shadow-md border border-gray-300 rounded-lg mb-10"
+        className="relative z-10 flex flex-col w-2/5 mx-auto p-8 bg-white shadow-md border border-gray-300 rounded-lg mb-10"
       >
         <Form
           formData={formData}
