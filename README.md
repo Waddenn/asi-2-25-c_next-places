@@ -1,7 +1,5 @@
 # asi-2-25-c_next-places
 
-## Getting Started
-
 ### Prerequisites
 Before you start, ensure you have the following installed:
 - Node.js
